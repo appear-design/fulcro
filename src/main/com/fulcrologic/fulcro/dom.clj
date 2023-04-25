@@ -226,7 +226,7 @@
   ([emitter]
    `(do ~@(clojure.core/map (partial gen-dom-macro emitter) cdom/tags))))
 
-(defn- gen-client-dom-fn [create-element-symbol tag]
+(defn gen-client-dom-fn [create-element-symbol tag]
   `(defn ~tag ~(cdom/gen-docstring tag true)
      [& ~'args]
      (let [conformed-args# (com.fulcrologic.fulcro.dom/parse-args ~'args) ; see CLJS file for spec
